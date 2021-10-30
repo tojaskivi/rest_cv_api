@@ -26,8 +26,8 @@ The private endpoints, that require authentication, are;
 The private endpoints also has the same functionality for jobs and websites.
 
 ## Other
-Live version: https://ojaskivi.se/cv/
-API URL: https://ojaskivi.se/cv/public/api/
-Github repo for the client: https://github.com/toskivi/rest_cv_client
+- Live version: https://ojaskivi.se/cv/
+- API URL: https://ojaskivi.se/cv/public/api/
+- Github repo for the client: https://github.com/toskivi/rest_cv_client
 
 This project was a school assignment when working towards my WebDev degree @MIUN, Sweden
