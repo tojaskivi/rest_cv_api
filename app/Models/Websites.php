@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Websites extends Model
 {
     use HasFactory;
-
-    // använd inte timestamps i 
+    
+    // don't use timestamps
     public $timestamps = false;
 
-    // kolumner en användare kan fylla i
+    // columns a user can fill
     protected $fillable = [
         'title',
         'url',

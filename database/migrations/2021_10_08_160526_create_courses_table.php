@@ -13,7 +13,7 @@ class CreateCoursesTable extends Migration
      */
     
     public function up()
-    {
+    {   // define the columns and datatypes of the courses table
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->string('name');

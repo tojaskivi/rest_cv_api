@@ -12,7 +12,7 @@ class CreateWebsitesTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   // define the columns and datatypes of the websites table
         Schema::create('websites', function (Blueprint $table) {
             $table->id();
             $table->string('title');
