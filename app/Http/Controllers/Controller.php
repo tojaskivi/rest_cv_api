@@ -12,9 +12,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    // search function
     public function search($searchTerm)
     {
         $result = [];
+
+        // gets all the search results from each controller
         $result['courses'] = (new CoursesController)->search($searchTerm);
         $result['jobs'] = (new JobsController)->search($searchTerm);
         $result['websites'] = (new WebsitesController)->search($searchTerm);
@@ -23,6 +26,7 @@ class Controller extends BaseController
 
     public function sanitize($haystack)
     {
+        // replaces every " with ', so it doesn't break the JavaScript of the client
         foreach ($haystack as $key => $string) {
             $string = str_replace('"', "'", $string);
             $string = htmlspecialchars($string);
@@ -33,6 +37,7 @@ class Controller extends BaseController
 
     public function dateCheck($request)
     {
+        // test if startDate is larger than endDate
         if (strtotime($request->startDate) > strtotime($request->endDate)) {
             return 1;
         }
