@@ -9,10 +9,10 @@ class Courses extends Model
 {
     use HasFactory;
 
-     // använd inte timestamps i 
+     // don't use timestamps
      public $timestamps = false;
 
-     // kolumner en användare kan fylla i
+     // columns a user than put data into
      protected $fillable = [
          'name',
          'school',
