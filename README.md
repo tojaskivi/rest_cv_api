@@ -1,26 +1,33 @@
-# CV med REST API
+# CV With Rest API - The API
 
-Skapa ett nytt projekt med composer; `composer create-project laravel/laravel api`
+## Description
+The API is created using Laravel and is a my resume. It contains information about the courses I've read, jobs I've had and webistes I've made.
 
-Sedan skapas en ny användare och databas i MariaDB. Den skapade användaren ges rättigheter för den skapade databasen och i Laravels inställningar läggs användaren till i .env-filen.
+## Endpoints
 
-Tre modeller (tabeller i databasen) skapas med kommandot `php artisan make:model [modellnamn] --migration`. Modellerna som skapades är Courses, Jobs och Websites. Under database/migrations/ definieras det vilka kolumner som ska finnas i vardera tabell. För att sedan faktiskt skapa tabellerna körs kommandot `php artisan migrate`.
+The public endpoints are;
+|  Method | URL | Description |
+| --- | --- |---|
+|GET|/courses|Get all courses|
+|GET|/courses/{id}| Get single course by id|
+|GET|/jobs|Get all jobs|
+|GET|/jobs/{id}|Get single course by id|
+|GET|/websites|Get all websites|
+|GET|/websites/{id}|Get single website by id|
 
-Controllers skapas för samtliga modeller med följande kommando. `php artisan make:controller [modellnamn]Controller --api`. Genom att lägga till `--api` genereras även skelett för metoder för CRUD i varje controller. Dessa metoder måste sedan fyllas på med funktionalitet.
+The private endpoints, that require authentication, are;
+|  Method | URL | Description |
+| --- | --- |---|
+|POST | /courses| Add a course|
+|DELETE| /courses/{id}|Delete course by id|
+|PUT|/courses/{id}|Update course by id|
+|POST|/logout|Logout & destroy the token|
 
-Under app/Models ska det fyllas i vilka kolumner som värden ska få läggas till i.
-```php
-     // Kolumner som en användare kan fylla i
-     // Detta är för courses
-     protected $fillable = [
-         'name',
-         'school',
-         'startDate',
-         'endDate'
-     ];
-}
-```
+The private endpoints also has the same functionality for jobs and websites.
 
-I routes/api.php definieras endpoints, som är sökvägen för att nå APIt.
+## Other
+Live version: https://ojaskivi.se/cv/
+API URL: https://ojaskivi.se/cv/public/api/
+Github repo for the client: https://github.com/toskivi/rest_cv_client
 
-För autentisering används Sanctum, och det installeras med kommandot `composer require laravel/sanctum` följt av `php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"`
+This project was a school assignment when working towards my WebDev degree @MIUN, Sweden
