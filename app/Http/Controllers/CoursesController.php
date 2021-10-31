@@ -15,7 +15,7 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        return Courses::all();
+        return Courses::orderBy('endDate', 'desc')->get();
     }
 
     /**
@@ -89,6 +89,6 @@ class CoursesController extends Controller
     {
         // search for the name, school or code
         // if ABC123 is in the database, searching for BC12 will return ABC123 because of the percent characters (%)
-        return Courses::where('name', 'like', '%' . $searchTerm . '%')->orWhere('school', 'like', '%' . $searchTerm . '%')->get();
+        return Courses::where('name', 'like', '%' . $searchTerm . '%')->orWhere('school', 'like', '%' . $searchTerm . '%')->orderBy('endDate', 'desc')->get();
     }
 }
