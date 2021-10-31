@@ -77,6 +77,7 @@ class WebsitesController extends Controller
     {
         // search for the name, school or code
         // if ABC123 is in the database, searching for BC12 will return ABC123 because of the percent characters (%)
+        
         return Websites::where('title', 'like', '%' . $searchTerm . '%')->orWhere('description', 'like', '%' . $searchTerm . '%')->get();
     }
 }
